@@ -7,7 +7,9 @@
   </head>
   <body>
     <form action="/form-input" method="POST">
-      <input type="text" placeholder="fullname" name="fullname" />
+      <input type="text" placeholder="fullname" name="fullname" required />
+      <input type="email" name="email" placeholder="email-id" required />
+      <input type="password" name="password" placeholder="password" required />
       <button type="submit">POST</button>
     </form>
   </body>

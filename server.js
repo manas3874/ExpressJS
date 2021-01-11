@@ -23,7 +23,7 @@ app.use("/favicon.ico", (request, response, next) => {
 app.use("/form", (request, response, next) => {
   response.sendFile(path.join(__dirname + "/htmlDocs/form.html"));
 });
-app.use("/form-input", (request, response, next) => {
+app.post("/form-input", (request, response, next) => {
   console.log(request.body);
   response.redirect("/");
 });
