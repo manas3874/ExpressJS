@@ -4,13 +4,20 @@ const router = express.Router();
 const rootPath = require("../helperFunctions/path");
 // ! article page handling
 router.get("/article", (request, response, next) => {
-  response.sendFile(path.join(__dirname + "/../htmlDocs/article.html"));
+  response.sendFile(rootPath + "/views/article.html");
 });
-
+router.get("/article/:articleId", (request, response, next) => {
+  // console.log(request.params.articleId);
+  console.log(request.query);
+  response.sendFile(rootPath + "/views/article.html");
+});
 // ! Keep the root OR homepage at the end
 router.get("/", (request, response, next) => {
   console.log(rootPath);
-  response.sendFile(rootPath + "/htmlDocs/index.html");
+  response
+    .status(200)
+    .render("index", { name: "The home page", pageTitle: "Express | Home" });
+  // response.sendFile(rootPath + "/views/index.html");
 });
 
 module.exports = router;

@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const rootPath = require("../helperFunctions/path");
+const handle404 = require("../controllers/handle404");
 // ! handle 404 page
-router.use("/", (request, response, next) => {
-  response.status(404).sendFile(rootPath + "/htmlDocs/404.html");
-});
+router.use("/", handle404.handle404);
 
 module.exports = router;
