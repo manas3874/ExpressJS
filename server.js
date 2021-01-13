@@ -32,7 +32,7 @@ app.use(indexRoutes);
 app.use(handle404Route);
 // ! Listening at port 3000
 
-mongoConnect((client) => {
+mongoConnect.mongoConnectMethod(() => {
   console.log("connected to mongo and running on PORT:3000");
   app.listen(3000);
 });
